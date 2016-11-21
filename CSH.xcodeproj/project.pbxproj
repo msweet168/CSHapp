@@ -11,7 +11,6 @@
 		512B41B71DE3B28100894CCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512B41B61DE3B28100894CCD /* ViewController.swift */; };
 		512B41BA1DE3B28100894CCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512B41B81DE3B28100894CCD /* Main.storyboard */; };
 		512B41BC1DE3B28100894CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 512B41BB1DE3B28100894CCD /* Assets.xcassets */; };
-		512B41BF1DE3B28100894CCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512B41BD1DE3B28100894CCD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +19,6 @@
 		512B41B61DE3B28100894CCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		512B41B91DE3B28100894CCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		512B41BB1DE3B28100894CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		512B41BE1DE3B28100894CCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		512B41C01DE3B28100894CCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +56,6 @@
 				512B41B61DE3B28100894CCD /* ViewController.swift */,
 				512B41B81DE3B28100894CCD /* Main.storyboard */,
 				512B41BB1DE3B28100894CCD /* Assets.xcassets */,
-				512B41BD1DE3B28100894CCD /* LaunchScreen.storyboard */,
 				512B41C01DE3B28100894CCD /* Info.plist */,
 			);
 			path = CSH;
@@ -124,7 +121,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				512B41BF1DE3B28100894CCD /* LaunchScreen.storyboard in Resources */,
 				512B41BC1DE3B28100894CCD /* Assets.xcassets in Resources */,
 				512B41BA1DE3B28100894CCD /* Main.storyboard in Resources */,
 			);
@@ -151,14 +147,6 @@
 				512B41B91DE3B28100894CCD /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		512B41BD1DE3B28100894CCD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				512B41BE1DE3B28100894CCD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -259,8 +247,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 3TCCEYF5TG;
 				INFOPLIST_FILE = CSH/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mitchell.CSH;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,8 +262,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 3TCCEYF5TG;
 				INFOPLIST_FILE = CSH/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mitchell.CSH;
 				PRODUCT_NAME = "$(TARGET_NAME)";
