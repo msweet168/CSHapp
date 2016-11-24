@@ -32,11 +32,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        setClock()
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(setClock), userInfo: nil, repeats: true)
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.separatorColor = UIColor.white
         tableView.rowHeight = 80
+        
+        if UserDefaults.standard.bool(forKey: "safari") {
+            safariSwitch.isOn = true
+        }
         
         
     }
@@ -78,27 +83,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         transferTitle = names[indexPath.row]
         transferLink = links[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
-        self.performSegue(withIdentifier: "toWeb", sender: self)
-
+        
+        if UserDefaults.standard.bool(forKey: "safari") {
+            let theURL = URL(string: transferLink)
+            UIApplication.shared.open(theURL!, options: [:], completionHandler: nil)
+        }
+        else {
+            self.performSegue(withIdentifier: "toWeb", sender: self)
+        }
+        
     }
     
     
     @IBAction func safariToggled(sender:UISwitch) {
         
         if sender.isOn {
-            
+            UserDefaults.standard.set(true, forKey: "safari")
         }
         else {
-            
+            UserDefaults.standard.set(false, forKey: "safari")
         }
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let destinationVC = segue.destination as! FeatureViewController
-        destinationVC.service = transferTitle
-        destinationVC.urlString = transferLink
+            let destinationVC = segue.destination as! FeatureViewController
+            destinationVC.service = transferTitle
+            destinationVC.urlString = transferLink
+        
     }
 
     override func didReceiveMemoryWarning() {
