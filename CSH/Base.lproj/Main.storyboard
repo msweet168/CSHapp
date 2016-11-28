@@ -193,6 +193,17 @@ Monday, Jan 1st </string>
                                             <action selector="forwardWithSender:" destination="mIQ-QT-E5h" eventType="touchUpInside" id="IzS-k7-3pj"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YYv-dT-EOx">
+                                        <rect key="frame" x="84" y="3" width="153" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="23"/>
+                                        <state key="normal" title="Add to Home">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addLinkWithSender:" destination="mIQ-QT-E5h" eventType="touchUpInside" id="SzV-WU-YyY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.75294117650000003" green="0.0" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -202,7 +213,11 @@ Monday, Jan 1st </string>
                     <navigationItem key="navigationItem" id="OSJ-SW-Y1x"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="back" destination="eRa-S2-TrJ" id="s23-Cm-KnM"/>
+                        <outlet property="forward" destination="RqF-5q-qcq" id="Eyv-ut-Anj"/>
+                        <outlet property="homeAdd" destination="YYv-dT-EOx" id="mU4-6Q-uCN"/>
                         <outlet property="loading" destination="Bgt-16-zyg" id="kVb-KS-eMe"/>
+                        <outlet property="refresh" destination="GfG-xx-ZSt" id="CQe-lE-Wzs"/>
                         <outlet property="webView" destination="atc-kQ-nzt" id="ish-pt-CKR"/>
                     </connections>
                 </viewController>

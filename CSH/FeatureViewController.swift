@@ -12,6 +12,11 @@ class FeatureViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet var webView:UIWebView!
     @IBOutlet var loading:UIActivityIndicatorView!
+    @IBOutlet var back:UIButton!
+    @IBOutlet var refresh:UIButton!
+    @IBOutlet var forward:UIButton!
+    @IBOutlet var homeAdd:UIButton!
+    
     
     var service = String()
     var urlString = ""
@@ -43,6 +48,14 @@ class FeatureViewController: UIViewController, UIWebViewDelegate {
             print("FATAL ERROR: Navigation bar not found")
         }
         
+        if self.title == "Custom" {
+            back.isHidden = true
+            forward.isHidden = true
+            refresh.isHidden = true
+            homeAdd.alpha = 1
+            
+        }
+        
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -62,6 +75,33 @@ class FeatureViewController: UIViewController, UIWebViewDelegate {
     
     @IBAction func refresh(sender:AnyObject) {
         webView.reload()
+    }
+    
+    @IBAction func addLink(sender:AnyObject) {
+        let currentURL = self.webView.request?.url?.absoluteString
+        var theNames = UserDefaults.standard.array(forKey: "nameArray")!
+        var theLinks = UserDefaults.standard.array(forKey: "linkArray")!
+        
+        let alert = UIAlertController(title: "Name", message: "What would you like to name your custom link?", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Name"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            theNames.insert(textField?.text ?? "Custom", at: theNames.count-1)
+            theLinks.insert(currentURL ?? "https://members.csh.rit.edu", at: theLinks.count-1)
+            
+            UserDefaults.standard.set(theNames, forKey: "nameArray")
+            UserDefaults.standard.set(theLinks, forKey: "linkArray")
+            print("Link added: \(currentURL!)")
+            _ = self.navigationController?.popToRootViewController(animated: true)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
