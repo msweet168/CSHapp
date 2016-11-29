@@ -121,7 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         transferLink = links[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if UserDefaults.standard.bool(forKey: "safari") {
+        if UserDefaults.standard.bool(forKey: "safari") && (indexPath.row != names.count-1) {
             let theURL = URL(string: transferLink)
             UIApplication.shared.open(theURL!, options: [:], completionHandler: nil)
         }
